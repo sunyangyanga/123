@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-1.11.3.min.js"></script>
+		<title></title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<table>
+			
+			<tr>
+			<td>一级分类</td>
+			<td>
+				<select id="sel1" onchange="createSel()">
+					<option value="0">---请选择---</option>
+					<option value="1">一级父菜单</option>
+					<option value="2">二级父菜单</option>
+					<option value="3">三级父菜单</option>
+					<option value="4">四级父菜单</option>
+					<option value="5">五级父菜单</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>二级分类</td>
+			<td>
+				<select id="sel2">
+					<option>---请选择---</option>
+				</select>
+			</td>
+		</tr>
+		</table>
+		
+		<script>
+			function selected(){
+				var sel = document.querySelectorAll('#sel1 option');		 
+				for(var i=1;i<sel.length;i++){
+					if(sel[i].selected==true){
+						return i;
+					}
+				}
+			}
+			
+			function createSel(){
+				var sell =  document.getElementById('sel2');
+				var i = selected();
+				sell.innerHTML = '<option>---请选择---</option>'+'<option>'+i+'级子菜单'+'</option>';
+			}
+			
+		</script>
+		
+	</body>
+</html>
